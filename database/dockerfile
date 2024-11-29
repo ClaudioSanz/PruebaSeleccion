@@ -1,0 +1,14 @@
+# Usar la imagen base de PostgreSQL
+FROM postgres:latest
+
+# Configurar variables de entorno
+ENV POSTGRES_USER=claudio
+ENV POSTGRES_PASSWORD=ft1234
+ENV POSTGRES_DB=fruitycert
+
+# Copiar el archivo SQL de inicialización
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Exponer el puerto de PostgreSQL
+EXPOSE 5432
+
